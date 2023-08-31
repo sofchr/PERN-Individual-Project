@@ -1,6 +1,6 @@
 const { Client } = require('pg')
-const garden = 'garden'
-const client = new Client(`postgres://localhost:5432/${garden}`)
+const gardenwall = 'gardenwall'
+const client = new Client(`postgres://localhost:5432/${gardenwall}`)
 
 
 
