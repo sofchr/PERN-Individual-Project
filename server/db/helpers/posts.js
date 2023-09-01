@@ -18,4 +18,17 @@ const createPosts = async ({ title, body, authorid }) => {
     }
 }
 
-module.exports = { createPosts } 
+const getAllPosts = async () => {
+    try {
+        const { rows }
+            = await client.query(`
+            SELECT *
+            FROM posts;
+        `)
+        return rows
+    } catch (error) {
+        throw error
+    }
+}
+
+module.exports = { createPosts, getAllPosts } 

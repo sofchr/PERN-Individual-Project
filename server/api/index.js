@@ -6,6 +6,6 @@ const router = express.Router();
 router.use('/characters', require('./characters'));
 
 // ROUTER: /api/posts
-// router.use('/posts', require('./posts'));
+router.use('/posts', require('./posts'));
 
 module.exports = router;    
