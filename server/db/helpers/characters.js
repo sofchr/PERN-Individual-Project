@@ -1,6 +1,6 @@
 const client = require("../client")
 
-const createCharacters = async ({ name, human, description }) => {
+const createCharacter = async ({ name, human, description }) => {
     try {
         const {
             rows: [characters],
@@ -18,4 +18,4 @@ const createCharacters = async ({ name, human, description }) => {
     }
 }
 
-module.exports = { createCharacters } 
+module.exports = { createCharacter } 

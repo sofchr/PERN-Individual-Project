@@ -1,7 +1,7 @@
 
 const users = [
-    { username: 'sofiecodes', password: ilovemycat, name: 'Sofie Christensen' },
-    { username: 'bennieboi', password: ilovebroccoli, name: 'Bennie Tchop' }
+    { username: 'sofiecodes', password: 'ilovemycat', name: 'Sofie Christensen' },
+    { username: 'bennieboi', password: 'ilovebroccoli', name: 'Bennie Tchop' }
 ]
 
 const characters = [

@@ -1,5 +1,9 @@
 const client = require('./client')
 
+const { createUser } = require('./helpers/users')
+const { createCharacter } = require('./helpers/characters')
+const { createPosts } = require('./helpers/posts')
+
 const { users, characters, posts } = require('./seedData')
 
 //Drop Tables for cleanliness
@@ -7,9 +11,9 @@ const dropTables = async () => {
     try {
         console.log("Starting to drop tables")
         await client.query(`
-        DROP TABLE IF EXISTS users;
         DROP TABLE IF EXISTS characters;
         DROP TABLE IF EXISTS posts; 
+        DROP TABLE IF EXISTS users;
         `)
         console.log("Tables dropped!")
     } catch (error) {
@@ -33,13 +37,13 @@ const createTables = async () => {
             "characterId" SERIAL PRIMARY KEY,
             name varchar(255) NOT NULL,
             "userId" INTEGER REFERENCES users("userId"),
-            human BOOLEAN NOT NULL
-            description NOT NULL
+            human BOOLEAN NOT NULL,
+            description varchar(255) NOT NULL
         );
 
         CREATE TABLE posts (
             title varchar(255) UNIQUE NOT NULL,
-            body varchar(255) NOT NULL
+            body varchar(255) NOT NULL,
             "userId" INTEGER REFERENCES users("userId")
 
 
@@ -65,7 +69,7 @@ const createInitialCharacters = async () => {
         for (const character of characters) {
             await createCharacter(character)
         }
-        console.log("created created characters")
+        console.log("created characters")
     } catch (error) {
         throw error
     }
