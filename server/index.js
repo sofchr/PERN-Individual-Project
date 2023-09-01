@@ -1,9 +1,26 @@
 const express = require('express');
-const router = express.Router()
+const app = express();
+const PORT = 5432;
 
-router.get('/health', (req, res, next) => {
-    res.send('OK')
+// init morgan
+const morgan = require('morgan');
+app.use(morgan('dev'));
+
+// init body-parser
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+
+// init cors
+const cors = require('cors');
+app.use(cors());
+
+app.get('/', (req, res) => {
+    res.send('Hello World!');
 });
 
-//router for all characters
-router.use('/characters', require('./dogs'))
+// Router: /api
+app.use('/api', require('./api'));
+
+app.listen(PORT, () => {
+    console.log(`Server listening on port ${PORT}`);
+});
