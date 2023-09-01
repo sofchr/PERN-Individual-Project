@@ -1,7 +1,7 @@
 const client = require('./client')
 
 const { createUser } = require('./helpers/users')
-const { createCharacter } = require('./helpers/characters')
+const { createCharacter, getAllCharacters } = require('./helpers/characters')
 const { createPosts } = require('./helpers/posts')
 
 const { users, characters, posts } = require('./seedData')
@@ -36,15 +36,16 @@ const createTables = async () => {
         CREATE TABLE characters (
             "characterId" SERIAL PRIMARY KEY,
             name varchar(255) NOT NULL,
-            "userId" INTEGER REFERENCES users("userId"),
+            posterid INTEGER REFERENCES users("userId"),
             human BOOLEAN NOT NULL,
             description varchar(255) NOT NULL
         );
 
         CREATE TABLE posts (
+            "postId" SERIAL PRIMARY KEY,
             title varchar(255) UNIQUE NOT NULL,
             body varchar(255) NOT NULL,
-            "userId" INTEGER REFERENCES users("userId")
+            authorid INTEGER REFERENCES users("userId")
 
 
         );
@@ -80,7 +81,7 @@ const createInitialPosts = async () => {
         for (const post of posts) {
             await createPosts(post)
         }
-        console.log("created post")
+        console.log("created posts")
     } catch (error) {
         throw error
     }
