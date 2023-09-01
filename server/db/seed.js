@@ -9,8 +9,7 @@ const dropTables = async () => {
         await client.query(`
         DROP TABLE IF EXISTS users;
         DROP TABLE IF EXISTS characters;
-        DROP TABLE IF EXISTS posts;
-    
+        DROP TABLE IF EXISTS posts; 
         `)
         console.log("Tables dropped!")
     } catch (error) {
@@ -48,3 +47,62 @@ const createTables = async () => {
     `)
     console.log("Tables built!")
 }
+
+
+const createInitialUsers = async () => {
+    try {
+        for (const user of users) {
+            await createUser(user)
+        }
+        console.log("created users")
+    } catch (error) {
+        throw error
+    }
+}
+
+const createInitialCharacters = async () => {
+    try {
+        for (const character of characters) {
+            await createCharacter(character)
+        }
+        console.log("created created characters")
+    } catch (error) {
+        throw error
+    }
+}
+
+const createInitialPosts = async () => {
+    try {
+        for (const post of posts) {
+            await createPosts(post)
+        }
+        console.log("created post")
+    } catch (error) {
+        throw error
+    }
+}
+
+
+const rebuildDb = async () => {
+    try {
+        //ACTUALLY connect to my local database
+        client.connect()
+        //Run our functions
+        await dropTables()
+        await createTables()
+
+        //Generating starting data
+        console.log("starting to seed...")
+        await createInitialUsers()
+        await createInitialCharacters()
+        await createInitialPosts()
+
+    } catch (error) {
+        console.error(error)
+    } finally {
+        //close our connection
+        client.end()
+    }
+}
+
+rebuildDb()
