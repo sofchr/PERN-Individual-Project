@@ -31,4 +31,23 @@ const getAllCharacters = async () => {
     }
 }
 
-module.exports = { createCharacter, getAllCharacters } 
+
+const getCharacterById = async (characterId) => {
+    try {
+        const {
+            rows: [characters]
+        } = await client.query(
+            `
+                SELECT *
+                FROM characters
+                WHERE "characterId" =${characterId};
+            `
+        )
+        return characters
+    } catch (error) {
+        throw error
+    }
+}
+
+module.exports = { createCharacter, getAllCharacters, getCharacterById }
+
