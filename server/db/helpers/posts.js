@@ -55,8 +55,7 @@ const deletePost = async (postId) => {
             rows: [posts]
         } = await client.query(
             `
-            SELECT *
-            FROM posts 
+            DELETE FROM posts
             WHERE "postId" =${postId};
             `
         )
