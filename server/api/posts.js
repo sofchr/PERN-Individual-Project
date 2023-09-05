@@ -43,7 +43,7 @@ router.delete('/:postId', async (req, res, next) => {
     }
 });
 
-router.patch('/:postId', async (req, res, next) => {
+router.put('/:postId', async (req, res, next) => {
     try {
         const post = await getPostById(req.params.postId);
         res.send(post);
