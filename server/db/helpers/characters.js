@@ -49,5 +49,21 @@ const getCharacterById = async (characterId) => {
     }
 }
 
-module.exports = { createCharacter, getAllCharacters, getCharacterById }
+const deleteCharacter = async (characterId) => {
+    try {
+        const {
+            rows: [characters]
+        } = await client.query(
+            `
+            DELETE FROM characters
+            WHERE "characterId" =${characterId};
+            `
+        )
+        return characters
+    } catch (error) {
+        throw error
+    }
+}
+
+module.exports = { createCharacter, getAllCharacters, getCharacterById, deleteCharacter }
 
