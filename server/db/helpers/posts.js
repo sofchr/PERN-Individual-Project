@@ -49,4 +49,21 @@ const getPostById = async (postId) => {
 }
 
 
-module.exports = { createPost, getAllPosts, getPostById } 
+const deletePost = async (postId) => {
+    try {
+        const {
+            rows: [posts]
+        } = await client.query(
+            `
+            SELECT *
+            FROM posts 
+            WHERE "postId" =${postId};
+            `
+        )
+        return posts
+    } catch (error) {
+        throw error
+    }
+}
+
+module.exports = { createPost, getAllPosts, getPostById, deletePost } 
