@@ -1,9 +1,9 @@
 const client = require("../client")
 
-const createPosts = async ({ title, body, authorid }) => {
+const createPost = async ({ title, body, authorid }) => {
     try {
         const {
-            rows: [posts],
+            rows: [post],
         } = await client.query(
             `
                 INSERT INTO posts( title, body, authorid )
@@ -12,7 +12,7 @@ const createPosts = async ({ title, body, authorid }) => {
             `,
             [title, body, authorid]
         )
-        return posts
+        return post
     } catch (error) {
         throw error
     }
@@ -48,4 +48,5 @@ const getPostById = async (postId) => {
     }
 }
 
-module.exports = { createPosts, getAllPosts, getPostById } 
+
+module.exports = { createPost, getAllPosts, getPostById } 

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { getAllPosts, getPostById } = require('../db/helpers/posts');
+const { getAllPosts, getPostById, createPost } = require('../db/helpers/posts');
 
 // GET - /api/posts, get all posts
 router.get('/', async (req, res, next) => {
@@ -17,6 +17,16 @@ router.get('/', async (req, res, next) => {
 router.get('/:postId', async (req, res, next) => {
     try {
         const post = await getPostById(req.params.postId);
+        res.send(post);
+    } catch (error) {
+        next(error);
+    }
+});
+
+//POST new post
+router.post('/', async (req, res, next) => {
+    try {
+        const post = await createPost(req.body);
         res.send(post);
     } catch (error) {
         next(error);
