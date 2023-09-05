@@ -3,7 +3,7 @@ const client = require("../client")
 const createCharacter = async ({ name, human, description, posterid }) => {
     try {
         const {
-            rows: [characters],
+            rows: [character],
         } = await client.query(
             `
                 INSERT INTO characters( name, human, description, posterid )
@@ -12,7 +12,7 @@ const createCharacter = async ({ name, human, description, posterid }) => {
             `,
             [name, human, description, posterid]
         )
-        return characters
+        return character
     } catch (error) {
         throw error
     }
