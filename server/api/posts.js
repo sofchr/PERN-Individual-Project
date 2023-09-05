@@ -43,4 +43,13 @@ router.delete('/:postId', async (req, res, next) => {
     }
 });
 
+router.patch('/:postId', async (req, res, next) => {
+    try {
+        const post = await getPostById(req.params.postId);
+        res.send(post);
+    } catch (error) {
+        next(error);
+    }
+});
+
 module.exports = router;
