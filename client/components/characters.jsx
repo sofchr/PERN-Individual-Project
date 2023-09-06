@@ -16,6 +16,7 @@ export default function allCharacters() {
             <div key={character.characterId}>
               <h2>{character.name}</h2>
               <p>{character.description}</p>
+              <img src={character.image} alt={character.name} />
             </div>
           </>
         );

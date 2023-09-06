@@ -1,16 +1,16 @@
 const client = require("../client")
 
-const createCharacter = async ({ name, human, description, posterid }) => {
+const createCharacter = async ({ name, image, human, description, posterid }) => {
     try {
         const {
             rows: [character],
         } = await client.query(
             `
-                INSERT INTO characters( name, human, description, posterid )
-                VALUES($1, $2, $3, $4)
+                INSERT INTO characters( name, image, human, description, posterid )
+                VALUES($1, $2, $3, $4, $5)
                 RETURNING *;
             `,
-            [name, human, description, posterid]
+            [name, image, human, description, posterid]
         )
         return character
     } catch (error) {
@@ -73,6 +73,7 @@ const editCharacter = async (characterId, body) => {
             `
                 UPDATE characters
                 SET name = '${body.name}',
+                image = '${body.image}',
                 human = '${body.human}',
                 description = '${body.description}'
                 WHERE "characterId" = ${characterId}
