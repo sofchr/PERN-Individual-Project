@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { getAllPosts, getPostById, createPost, deletePost } = require('../db/helpers/posts');
+const { getAllPosts, getPostById, createPost, deletePost, editPost } = require('../db/helpers/posts');
 
 // GET - /api/posts, get all posts
 router.get('/', async (req, res, next) => {
@@ -45,7 +45,7 @@ router.delete('/:postId', async (req, res, next) => {
 
 router.put('/:postId', async (req, res, next) => {
     try {
-        const post = await getPostById(req.params.postId);
+        const post = await editPost(req.params.postId, req.body);
         res.send(post);
     } catch (error) {
         next(error);
