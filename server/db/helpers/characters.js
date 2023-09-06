@@ -65,5 +65,25 @@ const deleteCharacter = async (characterId) => {
     }
 }
 
-module.exports = { createCharacter, getAllCharacters, getCharacterById, deleteCharacter }
+const editCharacter = async (characterId, body) => {
+    try {
+        const {
+            rows: [characters]
+        } = await client.query(
+            `
+                UPDATE characters
+                SET name = '${body.name}',
+                human = '${body.human}',
+                description = '${body.description}'
+                WHERE "characterId" = ${characterId}
+                RETURNING *;
+            `
+        )
+        return characters
+    } catch (error) {
+        throw error
+    }
+}
+
+module.exports = { createCharacter, getAllCharacters, getCharacterById, deleteCharacter, editCharacter }
 

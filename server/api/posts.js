@@ -43,6 +43,7 @@ router.delete('/:postId', async (req, res, next) => {
     }
 });
 
+//PUT to edit individual post
 router.put('/:postId', async (req, res, next) => {
     try {
         const post = await editPost(req.params.postId, req.body);

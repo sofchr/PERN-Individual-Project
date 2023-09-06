@@ -74,7 +74,7 @@ const editPost = async (postId, body) => {
                 UPDATE posts
                 SET title = '${body.title}',
                 body = '${body.body}'
-                WHERE "postId" =${postId}
+                WHERE "postId" = ${postId}
                 RETURNING *;
             `
         )
