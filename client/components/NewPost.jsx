@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { createPost } from ".../server/db/helpers/posts";
+//CURRENTLY GETTING ERROR WITH ABOVE ROUTE
 
 //add 'token' to deconstructed props if using tokens
 export default function NewPost({ posts, setPosts }) {
