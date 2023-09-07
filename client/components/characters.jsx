@@ -1,9 +1,9 @@
 // import { useNavigate } from "react-router-dom";
 import { fetchAllCharacters } from "../../fetching";
 
-export default function allCharacters() {
+export default function Characters() {
   useEffect(() => {
-    async function getAllCharacters() {
+    async function Characters() {
       const characters = await fetchAllCharacters;
     }
   });
