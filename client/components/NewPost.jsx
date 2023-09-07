@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import { createPost } from ".../server/db/helpers/posts";
-//CURRENTLY GETTING ERROR WITH ABOVE ROUTE
+import { createNewPost } from "../fetching";
 
 //add 'token' to deconstructed props if using tokens
 export default function NewPost({ posts, setPosts }) {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
-
+  const [error, setError] = useState(null);
   async function handleSubmit(e) {
     e.preventDefault();
-    const response = await createPost(
+    const response = await createNewPost(
       {
         title: title,
         body: body,
@@ -19,7 +18,7 @@ export default function NewPost({ posts, setPosts }) {
     if (response.success) {
       console.log("New Forum Post: ", response.data.posts.newForumPost);
 
-      // Resetting all posts manually
+      //resetting posts manually
       const newPostsList = [...posts, response.data.posts.newForumPost];
       setPosts(newPostsList);
 

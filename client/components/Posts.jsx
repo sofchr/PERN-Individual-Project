@@ -1,5 +1,7 @@
 import { fetchAllPosts } from "../fetching";
 import { useState, useEffect } from "react";
+import NewPost from "./NewPost";
+import React from "react";
 
 export default function Posts() {
   // const [token, setToken] = useState(null);
@@ -42,6 +44,9 @@ export default function Posts() {
             </div>
           );
         })}
+      </div>
+      <div className="new-post-form">
+        <NewPost />
       </div>
     </div>
   );

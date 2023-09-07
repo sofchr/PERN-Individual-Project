@@ -1,6 +1,6 @@
 //fetching all characters
 
-const baseUrl = "http://localhost:8080/api/";
+const baseUrl = "http://localhost:8080/api";
 
 export async function fetchAllCharacters() {
     try {
@@ -45,3 +45,48 @@ export async function fetchSinglePost() {
         return err;
     }
 };
+
+
+
+// export const createNewPost = async (post) => {
+
+//     try {
+//         const response = await fetch(`${baseUrl}/posts`, {
+//             method: "POST",
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             },
+//             body: JSON.stringify({
+//                 'post': post
+//             })
+//         });
+//         const result = await response.json();
+//         console.log(result);
+//         return result
+//     } catch (err) {
+//         console.error(err);
+//     }
+// }
+
+
+
+
+//added curly brackets around title, body and is now successfully posting, but not reloading page
+export async function createNewPost({ title, body }) {
+    try {
+        const response = await fetch(`${baseUrl}/posts`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                title,
+                body
+            })
+        });
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        console.error(error);
+    }
+}
