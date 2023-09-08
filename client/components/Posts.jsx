@@ -8,14 +8,14 @@ export default function Posts() {
   // const [_id, set_Id] = useState("");
   const [posts, setPosts] = useState([]);
 
+  async function refreshPosts() {
+    const posts = await fetchAllPosts();
+    setPosts(posts);
+    console.log(posts);
+    return posts;
+  }
   useEffect(() => {
-    async function getAllPosts() {
-      const posts = await fetchAllPosts();
-      setPosts(posts);
-      console.log(posts);
-      return posts;
-    }
-    getAllPosts();
+    refreshPosts();
   }, []);
 
   return (
@@ -46,7 +46,7 @@ export default function Posts() {
         })}
       </div>
       <div className="new-post-form">
-        <NewPost />
+        <NewPost refreshPosts={refreshPosts} />
       </div>
     </div>
   );

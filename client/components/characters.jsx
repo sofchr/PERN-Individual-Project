@@ -4,6 +4,8 @@ import { fetchAllCharacters } from "../fetching";
 export default function Characters() {
   const [characters, setCharacters] = useState([]);
   const [searchParam, setSearchParam] = useState("");
+  const [currentFilter, setCurrentFilter] = useState("all");
+
   useEffect(() => {
     async function getAllCharacters() {
       const characters = await fetchAllCharacters();
@@ -21,6 +23,20 @@ export default function Characters() {
           character.description.toLowerCase().includes(searchParam)
       )
     : characters;
+
+  const filteredCharacters =
+    currentFilter === "all"
+      ? searchedCharacters
+      : searchedCharacters.filter((character) => {
+          if (currentFilter === "onlyHuman") {
+            return character.human;
+          } else {
+            return !character.human;
+          }
+        });
+
+  //radio button with onchange call setFilter()
+  //if, else if, else
 
   return (
     <div className="characters-container">

@@ -1,27 +1,21 @@
 import React, { useState } from "react";
-import { createNewPost } from "../fetching";
+import { createNewPost, fetchAllPosts } from "../fetching";
+// import { useNavigate } from "react-router-dom";
 
 //add 'token' to deconstructed props if using tokens
-export default function NewPost({ posts, setPosts }) {
+export default function NewPost({ refreshPosts }) {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [error, setError] = useState(null);
   async function handleSubmit(e) {
     e.preventDefault();
-    const response = await createNewPost(
-      {
-        title: title,
-        body: body,
-      }
-      //put token here if needed later
-    );
-    if (response.success) {
-      console.log("New Forum Post: ", response.data.posts.newForumPost);
-
-      //resetting posts manually
-      const newPostsList = [...posts, response.data.posts.newForumPost];
-      setPosts(newPostsList);
-
+    const response = await createNewPost({
+      title: title,
+      body: body,
+    });
+    console.log(response);
+    if (typeof response === "object" && response.postId !== undefined) {
+      refreshPosts();
       setTitle("");
       setBody("");
     } else {
