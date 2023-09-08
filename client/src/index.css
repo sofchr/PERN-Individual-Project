@@ -104,3 +104,21 @@ button:focus-visible {
   border-style: solid;
   border-color: blue;
 }
+
+.posts-container {
+  border-style: solid;
+  border-color: orange;
+}
+
+.single-post {
+  border-style: solid;
+  border-color: purple;
+  margin: 20px;
+}
+
+.new-post-form {
+  border-style: solid;
+  border-color: pink;
+  margin: 10px;
+  padding: 20px;
+}

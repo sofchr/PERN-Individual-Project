@@ -30,13 +30,15 @@ export default function Characters() {
       : searchedCharacters.filter((character) => {
           if (currentFilter === "onlyHuman") {
             return character.human;
-          } else {
+          } else if (currentFilter === "onlyNonHuman") {
             return !character.human;
+          } else {
+            return true;
           }
         });
-
-  //radio button with onchange call setFilter()
-  //if, else if, else
+  console.log("characters", characters);
+  console.log("searched", searchedCharacters);
+  console.log("filtered", filteredCharacters);
 
   return (
     <div className="character-page-container">
@@ -51,9 +53,15 @@ export default function Characters() {
           onChange={(event) => setSearchParam(event.target.value.toLowerCase())}
         />
       </label>
-
+      <div className="filter-buttons">
+        <button onClick={() => setCurrentFilter("all")}>All Characters</button>
+        <button onClick={() => setCurrentFilter("onlyHuman")}>Human</button>
+        <button onClick={() => setCurrentFilter("onlyNonHuman")}>
+          Non-Human
+        </button>
+      </div>
       <div className="all-characters">
-        {searchedCharacters.map((character) => {
+        {filteredCharacters.map((character) => {
           return (
             <div className="single-character" key={character.characterId}>
               <h3>{character.name}</h3>
