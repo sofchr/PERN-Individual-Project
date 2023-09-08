@@ -46,32 +46,26 @@ export async function fetchSinglePost() {
     }
 };
 
-
-
-// export const createNewPost = async (post) => {
-
-//     try {
-//         const response = await fetch(`${baseUrl}/posts`, {
-//             method: "POST",
-//             headers: {
-//                 'Content-Type': 'application/json'
-//             },
-//             body: JSON.stringify({
-//                 'post': post
-//             })
-//         });
-//         const result = await response.json();
-//         console.log(result);
-//         return result
-//     } catch (err) {
-//         console.error(err);
-//     }
-// }
+export async function deletePost(postId) {
+    try {
+        const response = await fetch(`${baseUrl}/posts/${postId}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                // Authorization: `Bearer ${token}`,
+            },
+        });
+        const result = await response.json();
+        console.log(result);
+        return result;
+        //try return result.error.message
+    } catch (err) {
+        console.error(err);
+    }
+}
 
 
 
-
-//added curly brackets around title, body and is now successfully posting, but not reloading page
 export async function createNewPost({ title, body }) {
     try {
         const response = await fetch(`${baseUrl}/posts`, {

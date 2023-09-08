@@ -36,6 +36,7 @@ export default function Characters() {
             return true;
           }
         });
+
   console.log("characters", characters);
   console.log("searched", searchedCharacters);
   console.log("filtered", filteredCharacters);
@@ -43,22 +44,31 @@ export default function Characters() {
   return (
     <div className="character-page-container">
       <h1>All Characters</h1>
-      <div id="search-characters"></div>
-      <label>
-        Search:{""}
-        <input
-          id="search-characters-bar"
-          type="text"
-          placeholder="Search Characters"
-          onChange={(event) => setSearchParam(event.target.value.toLowerCase())}
-        />
-      </label>
-      <div className="filter-buttons">
-        <button onClick={() => setCurrentFilter("all")}>All Characters</button>
-        <button onClick={() => setCurrentFilter("onlyHuman")}>Human</button>
-        <button onClick={() => setCurrentFilter("onlyNonHuman")}>
-          Non-Human
-        </button>
+      <div className="search-and-filter">
+        <div className="search-characters">
+          <label>
+            <h4> Search:{""}</h4>
+            <br />
+            <input
+              id="search-characters-bar"
+              type="text"
+              placeholder="Search Characters"
+              onChange={(event) =>
+                setSearchParam(event.target.value.toLowerCase())
+              }
+            />
+          </label>
+        </div>{" "}
+        <h4>Filter:</h4>
+        <div className="filter-buttons">
+          <button onClick={() => setCurrentFilter("all")}>
+            All Characters
+          </button>
+          <button onClick={() => setCurrentFilter("onlyHuman")}>Human</button>
+          <button onClick={() => setCurrentFilter("onlyNonHuman")}>
+            Non-Human
+          </button>
+        </div>
       </div>
       <div className="all-characters">
         {filteredCharacters.map((character) => {

@@ -1,84 +1,36 @@
-/* :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+* {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  background-image: url("https://wallpapers.com/images/hd/over-the-garden-wall-middle-of-forest-wx3fwips75zf6pq2.jpg");
 }
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-} */
 
 #navbar-section {
   display: flex;
   justify-content: space-evenly;
-  border-style: solid;
-  border-color: green;
-  margin: 5rem;
+  margin-bottom: 5rem;
+  color: white;
+
+}
+
+
+#navbar-section a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#navbar-section a:visited {
+  color: inherit;
+}
+
+#navbar-section a:hover {
+  text-decoration: underline;
 }
 
 .all-characters {
-  border-style: solid;
-  border-color: red;
+  /* border-style: solid; */
+  /* border-color: red; */
   display: grid;
   grid-column-gap: 0.5rem;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -87,9 +39,9 @@ button:focus-visible {
 .single-character {
   margin: 1rem;
   padding: 0.5rem;
-  border-style: solid;
-  border-color: black;
-  background-color: aliceblue;
+  /* border-style: solid; */
+  /* border-color: black; */
+  background-color: #7aa1a6;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -101,24 +53,59 @@ button:focus-visible {
 }
 
 .character-page-container {
-  border-style: solid;
-  border-color: blue;
+  /* border-style: solid; */
+  /* border-color: blue; */
 }
 
 .posts-container {
-  border-style: solid;
-  border-color: orange;
+  /* border-style: solid; */
+  /* border-color: orange; */
+  display: flex;
 }
 
 .single-post {
-  border-style: solid;
-  border-color: purple;
-  margin: 20px;
+  background-image: url("https://t3.ftcdn.net/jpg/03/66/10/14/360_F_366101427_8yazUJK82fDrLi4YtpnQO3DJ4dTygxoe.jpg");
+  /* border-style: solid; */
+  /* border-color: purple; */
+  margin: 2rem;
+  padding: 3rem;
+  width: 60%;
 }
 
 .new-post-form {
-  border-style: solid;
-  border-color: pink;
+  /* border-style: solid; */
+  /* border-color: pink; */
   margin: 10px;
   padding: 20px;
+}
+
+.search-and-filter {
+  /* border-style: solid; */
+  /* border-color: yellow; */
+  margin: 3rem;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.search-characters {
+  /* border-style: dashed; */
+  /* border-color: black; */
+  margin: 1rem;
+}
+
+.filter-buttons {
+  /* border-style: dotted; */
+  /* border-color: green; */
+  margin: 1rem;
+  display: flex;
+  justify-content: space-around;
+  width: 20rem;
+  align-self: center;
+}
+
+h1,
+h4 {
+  color: white;
 }

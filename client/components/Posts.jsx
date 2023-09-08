@@ -2,6 +2,8 @@ import { fetchAllPosts } from "../fetching";
 import { useState, useEffect } from "react";
 import NewPost from "./NewPost";
 import React from "react";
+// import { deletePost } from "../fetching";
+import DeletePost from "./DeletePost";
 
 export default function Posts() {
   // const [token, setToken] = useState(null);
@@ -35,12 +37,7 @@ export default function Posts() {
             <div className="single-post" key={post.postId}>
               <p>Title: {post.title}</p>
               <p>{post.body}</p>
-
-              {/* {token == null ? null : (
-                <button onClick={() => deletePost(token, post._id)}>
-                  Delete Post
-                </button>
-              )} */}
+              <DeletePost />
             </div>
           );
         })}
