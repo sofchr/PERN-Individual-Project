@@ -1,4 +1,4 @@
-:root {
+/* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -66,4 +66,41 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+} */
+
+#navbar-section {
+  display: flex;
+  justify-content: space-evenly;
+  border-style: solid;
+  border-color: green;
+  margin: 5rem;
+}
+
+.all-characters {
+  border-style: solid;
+  border-color: red;
+  display: grid;
+  grid-column-gap: 0.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.single-character {
+  margin: 1rem;
+  padding: 0.5rem;
+  border-style: solid;
+  border-color: black;
+  background-color: aliceblue;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.character-image {
+  width: 150px;
+}
+
+.character-page-container {
+  border-style: solid;
+  border-color: blue;
 }

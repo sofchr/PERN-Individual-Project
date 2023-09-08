@@ -39,7 +39,7 @@ export default function Characters() {
   //if, else if, else
 
   return (
-    <div className="characters-container">
+    <div className="character-page-container">
       <h1>All Characters</h1>
       <div id="search-characters"></div>
       <label>
@@ -52,15 +52,21 @@ export default function Characters() {
         />
       </label>
 
-      {searchedCharacters.map((character) => {
-        return (
-          <div className="single-character" key={character.characterId}>
-            <h3>{character.name}</h3>
-            <img src={character.image} alt={character.name} />
-            <p>{character.description}</p>
-          </div>
-        );
-      })}
+      <div className="all-characters">
+        {searchedCharacters.map((character) => {
+          return (
+            <div className="single-character" key={character.characterId}>
+              <h3>{character.name}</h3>
+              <img
+                className="character-image"
+                src={character.image}
+                alt={character.name}
+              />
+              <p>{character.description}</p>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
