@@ -25,13 +25,14 @@ export default function NewPost({ refreshPosts }) {
 
   return (
     <div className="submit-form">
+      <h4>Add a New Post</h4>
       <form onSubmit={handleSubmit}>
         {error && <p>{error}</p>}
         <input
           value={title}
           type="text"
           name="title"
-          placeholder="Title of Post"
+          placeholder="Subject of Post"
           onChange={(e) => setTitle(e.target.value)}
         />
         <br />
@@ -39,7 +40,7 @@ export default function NewPost({ refreshPosts }) {
           value={body}
           type="text"
           name="body"
-          placeholder="What do you wanna talk about?"
+          placeholder="Whatcha wanna talk about?"
           onChange={(e) => setBody(e.target.value)}
         />
         <br />

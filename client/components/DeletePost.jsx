@@ -2,8 +2,6 @@ import { useNavigate } from "react-router-dom";
 import { deletePost } from "../fetching";
 
 export default function DeletePost(postId) {
-  const postIdDP = postId.postId;
-
   const navigate = useNavigate();
 
   async function handleDelete(event) {
