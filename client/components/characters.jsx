@@ -4,7 +4,10 @@ import { fetchAllCharacters } from "../fetching";
 export default function Characters() {
   const [characters, setCharacters] = useState([]);
   const [searchParam, setSearchParam] = useState("");
-  const [currentFilter, setCurrentFilter] = useState("all");
+  const [currentFilter, setCurrentFilter] = useState("All");
+  const onOptionChange = (e) => {
+    setCurrentFilter(e.target.value);
+  };
 
   useEffect(() => {
     async function getAllCharacters() {
@@ -25,12 +28,12 @@ export default function Characters() {
     : characters;
 
   const filteredCharacters =
-    currentFilter === "all"
+    currentFilter === "All"
       ? searchedCharacters
       : searchedCharacters.filter((character) => {
-          if (currentFilter === "onlyHuman") {
+          if (currentFilter === "Human") {
             return character.human;
-          } else if (currentFilter === "onlyNonHuman") {
+          } else if (currentFilter === "Non-Human") {
             return !character.human;
           } else {
             return true;
@@ -61,13 +64,30 @@ export default function Characters() {
         </div>{" "}
         <h4>Filter:</h4>
         <div className="filter-buttons">
-          <button onClick={() => setCurrentFilter("all")}>
-            All Characters
-          </button>
-          <button onClick={() => setCurrentFilter("onlyHuman")}>Human</button>
-          <button onClick={() => setCurrentFilter("onlyNonHuman")}>
-            Non-Human
-          </button>
+          <input
+            type="radio"
+            id="all"
+            value="All"
+            checked={currentFilter === "All"}
+            onChange={onOptionChange}
+          />
+          <label htmlFor="all">All</label>
+          <input
+            type="radio"
+            id="human"
+            value="Human"
+            checked={currentFilter === "Human"}
+            onChange={onOptionChange}
+          />
+          <label htmlFor="human">Human</label>
+          <input
+            type="radio"
+            id="non-human"
+            value="Non-Human"
+            checked={currentFilter === "Non-Human"}
+            onChange={onOptionChange}
+          />
+          <label htmlFor="non-human">Non-Human</label>
         </div>
       </div>
       <div className="all-characters">
