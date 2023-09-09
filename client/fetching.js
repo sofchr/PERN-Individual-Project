@@ -55,7 +55,7 @@ export async function deletePost(postId) {
                 // Authorization: `Bearer ${token}`,
             },
         });
-        const result = await response.json();
+        const result = await response
         console.log(result);
         // return result;
     } catch (err) {
@@ -84,37 +84,23 @@ export async function createNewPost({ title, body }) {
     }
 }
 
-// export async function editPost(postId) {
-//     try {
-//         const response = await fetch(`${baseUrl}/posts/${postId}`, {
-//             method: "PUT",
-//             headers: {
-//                 "Content-Type": "application/json",
-//                 // Authorization: `Bearer ${token}`,
-//             },
-//             body: JSON.stringify({
-//                 title,
-//                 body
-//             })
-//         });
-//         const result = await response.json();
-//         console.log(result);
-//         return result;
-//     } catch (err) {
-//         console.error(err);
-//     }
-// }
-
-
-async function updatePurchase(purchaseId, body) {
+export async function editPost({ title, body }) {
     try {
-        const purchases = data.sales;
-        const purchase = purchases.find(purchase => purchase.id === Number(purchaseId));
-        const index = purchases.findIndex(purchase => purchase.id === Number(purchaseId));
-        let newPurchase = { ...purchase, ...body };
-        purchases[index] = newPurchase;
-        return newPurchase;
-    } catch (error) {
-        throw error;
+        const response = await fetch(`${baseUrl}/posts/${postId}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                // Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({
+                title,
+                body
+            })
+        });
+        const result = await response.json();
+        console.log(result);
+        return result;
+    } catch (err) {
+        console.error(err);
     }
 }

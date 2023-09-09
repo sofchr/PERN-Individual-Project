@@ -51,15 +51,12 @@ const getPostById = async (postId) => {
 
 const deletePost = async (postId) => {
     try {
-        const {
-            rows: [posts]
-        } = await client.query(
+        await client.query(
             `
             DELETE FROM posts
             WHERE "postId" =${postId};
             `
         )
-        return posts
     } catch (error) {
         throw error
     }

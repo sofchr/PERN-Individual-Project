@@ -37,7 +37,7 @@ export default function Posts() {
             <div className="single-post" key={post.postId}>
               <p>Title: {post.title}</p>
               <p>{post.body}</p>
-              <DeletePost />
+              <DeletePost postId={post.postId} refreshPosts={refreshPosts} />
             </div>
           );
         })}
