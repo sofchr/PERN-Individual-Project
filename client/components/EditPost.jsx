@@ -42,7 +42,7 @@ export default function EditPost({ post, refreshPosts }) {
           onChange={(e) => setBody(e.target.value)}
         />
         <br />
-        <button>Update</button>
+        <button className="update-button">Update</button>
       </form>
     </div>
   );

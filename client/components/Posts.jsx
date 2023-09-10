@@ -2,9 +2,8 @@ import { fetchAllPosts } from "../fetching";
 import { useState, useEffect } from "react";
 import NewPost from "./NewPost";
 import React from "react";
-// import { deletePost } from "../fetching";
-import DeletePost from "./DeletePost";
-import EditPost from "./EditPost";
+
+import SinglePost from "./SinglePost";
 
 export default function Posts() {
   // const [token, setToken] = useState(null);
@@ -35,12 +34,11 @@ export default function Posts() {
       <div className="posts-container">
         {posts.map((post) => {
           return (
-            <div className="single-post" key={post.postId}>
-              <p>Title: {post.title}</p>
-              <p>{post.body}</p>
-              <DeletePost postId={post.postId} refreshPosts={refreshPosts} />
-              <EditPost post={post} refreshPosts={refreshPosts} />
-            </div>
+            <SinglePost
+              post={post}
+              refreshPosts={refreshPosts}
+              key={post.postId}
+            />
           );
         })}
       </div>

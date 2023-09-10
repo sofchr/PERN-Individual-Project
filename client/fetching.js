@@ -85,6 +85,7 @@ export async function createNewPost({ title, body }) {
 }
 
 export async function editPost({ title, body, postId }) {
+
     try {
         const response = await fetch(`${baseUrl}/posts/${postId}`, {
             method: "PUT",

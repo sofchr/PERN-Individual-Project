@@ -69,11 +69,12 @@ const editPost = async (postId, body) => {
         } = await client.query(
             `
                 UPDATE posts
-                SET title = '${body.title}',
-                body = '${body.body}'
+                SET title = ($1),
+                body = ($2)
                 WHERE "postId" = ${postId}
                 RETURNING *;
-            `
+            `,
+            [body.title, body.body]
         )
         return posts
     } catch (error) {
