@@ -3,7 +3,7 @@ import { editPost } from "../fetching";
 // import { useNavigate } from "react-router-dom";
 
 //add 'token' to deconstructed props if using tokens
-export default function EditPost({ post, refreshPosts }) {
+export default function EditPost({ post, onSubmit }) {
   const [title, setTitle] = useState(post.title);
   const [body, setBody] = useState(post.body);
   const [error, setError] = useState(null);
@@ -16,7 +16,7 @@ export default function EditPost({ post, refreshPosts }) {
     });
     console.log(response);
     if (typeof response === "object" && response.postId !== undefined) {
-      refreshPosts();
+      onSubmit();
     } else {
       setError(response.error.message);
     }

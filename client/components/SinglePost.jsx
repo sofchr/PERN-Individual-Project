@@ -12,7 +12,13 @@ export default function SinglePost({ post, refreshPosts }) {
       <p>{post.body}</p>
       <DeletePost postId={post.postId} refreshPosts={refreshPosts} />
       {showEditForm ? (
-        <EditPost post={post} refreshPosts={refreshPosts} />
+        <EditPost
+          post={post}
+          onSubmit={() => {
+            refreshPosts();
+            setShowEditForm(false);
+          }}
+        />
       ) : (
         <button className="edit-button" onClick={() => setShowEditForm(true)}>
           Edit
