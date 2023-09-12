@@ -4,21 +4,21 @@ import Characters from "../components/Characters";
 import NavBar from "../components/NavBar";
 import Posts from "../components/Posts";
 import Home from "../components/Home";
-// import NewPost from "../components/NewPost";
-// import Users from "./components/users";
-
 import "./App.css";
+import { useState } from "react";
 
 function App() {
+  const [token, setToken] = useState(null);
   return (
     <>
       <NavBar />
-      {/* New post not working below, routing issue */}
-      {/* <NewPost /> */}
+
       <Routes>
         <Route path="/" element={Home()} />
         <Route path="/characters" element={Characters()} />
         <Route path="/posts" element={Posts()} />
+        {/* <Route path="/register" element={<Register setToken={setToken} />} />
+        <Route path="/login" element={<Login setToken={setToken} />} /> */}
       </Routes>
     </>
   );

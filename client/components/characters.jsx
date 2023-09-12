@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { fetchAllCharacters } from "../fetching";
+import { useNavigate } from "react-router-dom";
 
 export default function Characters() {
   const [characters, setCharacters] = useState([]);
   const [searchParam, setSearchParam] = useState("");
   const [currentFilter, setCurrentFilter] = useState("All");
+  const navigate = useNavigate();
   const onOptionChange = (e) => {
     setCurrentFilter(e.target.value);
   };
@@ -101,6 +103,13 @@ export default function Characters() {
                 alt={character.name}
               />
               <p>{character.description}</p>
+              {/* BUTTON ATTEMPT */}
+              {/* <button
+                key={character.characterId}
+                onClick={() => navigate(`characters/${character.characterId}`)}
+              >
+                See Character Details
+              </button> */}
             </div>
           );
         })}

@@ -11,4 +11,7 @@ router.use('/posts', require('./posts'));
 // ROUTER: /api/users
 router.use('/users', require('./users'));
 
+//ROUTER: 
+router.use('/auth', require('./auth'))
+
 module.exports = router;    
