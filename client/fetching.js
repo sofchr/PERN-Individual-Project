@@ -113,16 +113,16 @@ export async function editPost({ title, body, postId, token }) {
 export const registerUser = async (username, password) => {
     try {
         const response = await fetch(
-            `${baseUrl}/register`, {
+            `${baseUrl}/users/register`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                user: {
-                    username,
-                    password
-                }
+
+                username: username,
+                password: password
+
             })
         });
         const result = await response.json();
@@ -142,10 +142,10 @@ export const login = async (username, password) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                user: {
-                    username,
-                    password
-                }
+
+                username: username,
+                password: password
+
             })
         });
         const result = await response.json();

@@ -13,7 +13,7 @@ function App() {
   const [token, setToken] = useState(null);
   return (
     <>
-      <NavBar />
+      <NavBar token={token} />
 
       <Routes>
         <Route path="/" element={Home()} />

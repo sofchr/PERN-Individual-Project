@@ -11,9 +11,10 @@ export default function Register({ setToken }) {
     e.preventDefault();
     console.log(username, password);
     const register = await registerUser(username, password);
+    //deleted .data from below
+    setToken(register.token);
     console.log(register);
-    setToken(register.data.token);
-    console.log("register", register);
+    // console.log("register", register);
     setUsername("");
     setPassword("");
     nav("/posts");

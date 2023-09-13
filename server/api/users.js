@@ -2,6 +2,9 @@ const express = require('express');
 const bcrypt = require('bcrypt')
 const { getAllUsers, getUserById, createUser, getUserByUsername } = require('../db/helpers/users')
 const router = require('express').Router()
+const { JWT_SECRET, COOKIE_SECRET } = require("../secrets");
+const jwt = require('jsonwebtoken')
+
 
 const SALT_ROUNDS = 10
 
@@ -51,14 +54,17 @@ router.post('/register', async (req, res, next) => {
         const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS)
         const user = await createUser({ username, password: hashedPassword })
         delete user.password
+
         const token = jwt.sign(user, JWT_SECRET)
+
         res.cookie('token', token, {
             sameSite: 'strict',
             httpOnly: true,
             signed: true
         })
         delete user.password
-        res.send({ user })
+        res.send({ token, user })
+        return token;
 
     } catch (error) {
         next(error)
@@ -86,7 +92,8 @@ router.post('/login', async (req, res, next) => {
             })
 
             delete user.password
-            res.send({ user })
+            res.send({ token, user })
+            return token;
         }
 
     } catch (error) {

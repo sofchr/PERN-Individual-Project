@@ -11,7 +11,12 @@ export default function Login({ setToken }) {
     e.preventDefault();
     console.log(username, password);
     const register = await login(username, password);
-    setToken(register.data.token);
+    // console.log("response.headers", response.data);
+
+    // const headers = response.headers;
+    // console.log("Response headers", headers);
+    //removed .data from below
+    setToken(register.token);
     console.log(register);
     setUsername("");
     setPassword("");
