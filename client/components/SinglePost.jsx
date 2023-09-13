@@ -3,16 +3,21 @@ import React from "react";
 import DeletePost from "./DeletePost";
 import EditPost from "./EditPost";
 
-export default function SinglePost({ post, refreshPosts }) {
+export default function SinglePost({ post, refreshPosts, token }) {
   const [showEditForm, setShowEditForm] = useState(false);
 
   return (
     <div className="single-post" key={post.postId}>
       <p>Title: {post.title}</p>
       <p>{post.body}</p>
-      <DeletePost postId={post.postId} refreshPosts={refreshPosts} />
+      <DeletePost
+        postId={post.postId}
+        refreshPosts={refreshPosts}
+        token={token}
+      />
       {showEditForm ? (
         <EditPost
+          token={token}
           post={post}
           onSubmit={() => {
             refreshPosts();

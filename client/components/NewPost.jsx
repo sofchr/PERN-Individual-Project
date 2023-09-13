@@ -3,13 +3,14 @@ import { createNewPost, fetchAllPosts } from "../fetching";
 // import { useNavigate } from "react-router-dom";
 
 //add 'token' to deconstructed props if using tokens
-export default function NewPost({ refreshPosts }) {
+export default function NewPost({ refreshPosts, token }) {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [error, setError] = useState(null);
   async function handleSubmit(e) {
     e.preventDefault();
     const response = await createNewPost({
+      token,
       title: title,
       body: body,
     });

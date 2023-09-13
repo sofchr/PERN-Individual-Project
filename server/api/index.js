@@ -12,6 +12,14 @@ router.use('/posts', require('./posts'));
 router.use('/users', require('./users'));
 
 //ROUTER: 
-router.use('/auth', require('./auth'))
+// router.use('/auth', require('./auth'))
+
+router.get("/", async (req, res, next) => {
+    try {
+        res.send("OK")
+    } catch (error) {
+        console.log(error);
+    }
+})
 
 module.exports = router;    

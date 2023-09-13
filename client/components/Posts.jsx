@@ -5,7 +5,7 @@ import React from "react";
 
 import SinglePost from "./SinglePost";
 
-export default function Posts() {
+export default function Posts({ token }) {
   // const [token, setToken] = useState(null);
   // const [_id, set_Id] = useState("");
   const [posts, setPosts] = useState([]);
@@ -43,7 +43,7 @@ export default function Posts() {
         })}
       </div>
       <div className="new-post-form">
-        <NewPost refreshPosts={refreshPosts} />
+        <NewPost refreshPosts={refreshPosts} token={token} />
       </div>
     </div>
   );

@@ -46,13 +46,14 @@ export async function fetchSinglePost() {
     }
 };
 
-export async function deletePost(postId) {
+//will need token
+export async function deletePost({ postId, token }) {
     try {
         const response = await fetch(`${baseUrl}/posts/${postId}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
-                // Authorization: `Bearer ${token}`,
+                Authorization: `Bearer ${token}`,
             },
         });
         const result = await response
@@ -64,13 +65,14 @@ export async function deletePost(postId) {
 }
 
 
-
-export async function createNewPost({ title, body }) {
+//will need token
+export async function createNewPost({ title, body, token }) {
     try {
         const response = await fetch(`${baseUrl}/posts`, {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                'Authorization': `Bearer ${token}`
             },
             body: JSON.stringify({
                 title,
@@ -84,14 +86,15 @@ export async function createNewPost({ title, body }) {
     }
 }
 
-export async function editPost({ title, body, postId }) {
+//will need to add token to this 
+export async function editPost({ title, body, postId, token }) {
 
     try {
         const response = await fetch(`${baseUrl}/posts/${postId}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
-                // Authorization: `Bearer ${token}`,
+                Authorization: `Bearer ${token}`,
             },
             body: JSON.stringify({
                 title,
@@ -101,6 +104,53 @@ export async function editPost({ title, body, postId }) {
         const result = await response.json();
         console.log(result);
         return result;
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+
+export const registerUser = async (username, password) => {
+    try {
+        const response = await fetch(
+            `${baseUrl}/register`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                user: {
+                    username,
+                    password
+                }
+            })
+        });
+        const result = await response.json();
+        console.log(result)
+        return result
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+export const login = async (username, password) => {
+
+    try {
+        const response = await fetch(`${baseUrl}/users/login`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                user: {
+                    username,
+                    password
+                }
+            })
+        });
+        const result = await response.json();
+        console.log(result);
+        return result
     } catch (err) {
         console.error(err);
     }
