@@ -8,6 +8,7 @@ import "./App.css";
 import { useState } from "react";
 import Register from "../components/Register";
 import Login from "../components/Login";
+import SingleCharacter from "../components/SingleCharacter";
 
 function App() {
   const [token, setToken] = useState(null);
@@ -18,9 +19,20 @@ function App() {
       <Routes>
         <Route path="/" element={Home()} />
         <Route path="/characters" element={Characters()} />
+        <Route
+          path="/characters/:characterId"
+          element={<SingleCharacter />}
+        ></Route>
+
         <Route path="/posts" element={<Posts token={token} />} />
-        <Route path="/register" element={<Register setToken={setToken} />} />
-        <Route path="/login" element={<Login setToken={setToken} />} />
+        <Route
+          path="/register"
+          element={<Register setToken={setToken} token={token} />}
+        />
+        <Route
+          path="/login"
+          element={<Login setToken={setToken} token={token} />}
+        />
       </Routes>
     </>
   );

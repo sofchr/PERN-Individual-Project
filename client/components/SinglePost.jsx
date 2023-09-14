@@ -8,7 +8,7 @@ export default function SinglePost({ post, refreshPosts, token }) {
 
   return (
     <div className="single-post" key={post.postId}>
-      <p>Title: {post.title}</p>
+      <h3>{post.title}</h3>
       <p>{post.body}</p>
       <DeletePost
         postId={post.postId}

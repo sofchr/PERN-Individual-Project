@@ -13,7 +13,7 @@ export async function fetchAllCharacters() {
     }
 };
 
-export async function fetchSingleCharacter() {
+export async function fetchSingleCharacter(characterId) {
     try {
         const response = await fetch(`${baseUrl}/characters/${characterId}`);
         const returnVal = await response.json();
@@ -53,7 +53,7 @@ export async function deletePost({ postId, token }) {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`,
+                "Authorization": `Bearer ${token}`,
             },
         });
         const result = await response

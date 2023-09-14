@@ -2,7 +2,7 @@ import { useState } from "react";
 import { login } from "../fetching";
 import { useNavigate } from "react-router-dom";
 
-export default function Login({ setToken }) {
+export default function Login({ token, setToken }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const nav = useNavigate();
@@ -20,7 +20,7 @@ export default function Login({ setToken }) {
     console.log(register);
     setUsername("");
     setPassword("");
-    nav("/posts");
+    // nav("/posts");
   };
 
   return (
@@ -44,6 +44,7 @@ export default function Login({ setToken }) {
         />
         <button type="submit">Submit</button>
       </form>
+      {token == null ? null : <h4>You're logged in!</h4>}
     </>
   );
 }

@@ -103,6 +103,13 @@ export default function Characters() {
                 alt={character.name}
               />
               <p>{character.description}</p>
+              <button
+                onClick={() => {
+                  navigate(`/characters/${character.characterId}`);
+                }}
+              >
+                See Details
+              </button>
               {/* BUTTON ATTEMPT */}
               {/* <button
                 key={character.characterId}

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { registerUser } from "../fetching";
 import { useNavigate } from "react-router-dom";
 
-export default function Register({ setToken }) {
+export default function Register({ token, setToken }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const nav = useNavigate();
@@ -17,7 +17,7 @@ export default function Register({ setToken }) {
     // console.log("register", register);
     setUsername("");
     setPassword("");
-    nav("/posts");
+    // nav("/posts");
   };
 
   return (
@@ -26,6 +26,7 @@ export default function Register({ setToken }) {
 
       <form onSubmit={handleSubmit}>
         <input
+          autoFocus
           placeholder="username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
@@ -38,6 +39,7 @@ export default function Register({ setToken }) {
         />
         <button type="submit">Submit</button>
       </form>
+      {token == null ? null : <h4>You're registered!</h4>}
     </>
   );
 }

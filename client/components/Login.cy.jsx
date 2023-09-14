@@ -19,6 +19,7 @@ describe("<Login />", () => {
         <Login />
       </BrowserRouter>
     );
+    cy.wait(500);
     cy.focused().should("have.id", "username");
   });
 });
