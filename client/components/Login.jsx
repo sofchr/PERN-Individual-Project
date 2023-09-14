@@ -29,11 +29,14 @@ export default function Login({ setToken }) {
 
       <form onSubmit={handleSubmit}>
         <input
+          autoFocus
+          id="username"
           placeholder="username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
         <input
+          id="password"
           type="password"
           placeholder="password"
           value={password}
