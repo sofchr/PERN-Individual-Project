@@ -1,8 +1,9 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { fetchSingleCharacter } from "../fetching";
 
 export default function SingleCharacter() {
+  const navigate = useNavigate();
   const params = useParams();
   const [character, setCharacter] = useState({});
 
@@ -20,14 +21,25 @@ export default function SingleCharacter() {
   }, []);
 
   return (
-    <div key={character.characterId}>
-      <h4>{character.name}</h4>
-      <p>{character.description}</p>
-      <img
-        className="character-image"
-        src={character.image}
-        alt={character.name}
-      />
+    <div className="single-character-page">
+      <div className="single-character-card" key={character.characterId}>
+        <h3 className="character-headers">{character.name}</h3>
+        <p>{character.description}</p>
+        <img
+          className="character-image-single"
+          src={character.image}
+          alt={character.name}
+        />
+        <br />
+        <button
+          className="character-buttons"
+          onClick={() => {
+            navigate(`/characters`);
+          }}
+        >
+          Back
+        </button>
+      </div>
     </div>
   );
 }

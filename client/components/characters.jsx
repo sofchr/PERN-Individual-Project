@@ -52,19 +52,19 @@ export default function Characters() {
       <div className="search-and-filter">
         <div className="search-characters">
           <label>
-            <h4> Search:{""}</h4>
+            <h4 className="search-filter-header"> Search:{""}</h4>
             <br />
             <input
               id="search-characters-bar"
               type="text"
-              placeholder="Search Characters"
+              placeholder="search character name/description"
               onChange={(event) =>
                 setSearchParam(event.target.value.toLowerCase())
               }
             />
           </label>
         </div>{" "}
-        <h4>Filter:</h4>
+        <h4 className="search-filter-header">Filter:</h4>
         <div className="filter-buttons">
           <input
             type="radio"
@@ -96,14 +96,15 @@ export default function Characters() {
         {filteredCharacters.map((character) => {
           return (
             <div className="single-character" key={character.characterId}>
-              <h3>{character.name}</h3>
+              <h3 className="character-headers">{character.name}</h3>
               <img
-                className="character-image"
+                className="character-image-all"
                 src={character.image}
                 alt={character.name}
               />
-              <p>{character.description}</p>
+              <br />
               <button
+                className="character-buttons"
                 onClick={() => {
                   navigate(`/characters/${character.characterId}`);
                 }}
