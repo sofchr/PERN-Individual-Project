@@ -1,4 +1,14 @@
-//fetching all characters
+const express = require('express');
+const cors = require('cors');
+
+const app = express();
+
+// Use cors middleware
+app.use(cors({
+    origin: 'https://welcome-to-the-unknown.onrender.com', // Replace with your frontend domain
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true, // Enable credentials if your frontend makes requests with credentials
+}));
 
 //og base url below
 // const baseUrl = "http://localhost:8080/api";
