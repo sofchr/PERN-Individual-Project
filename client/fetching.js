@@ -13,7 +13,7 @@ app.use(cors({
 //og base url below
 // const baseUrl = "http://localhost:8080/api";
 //for render
-const baseUrl = "https://the-unknown.onrender.com";
+const baseUrl = "https://the-unknown.onrender.com/api";
 
 export async function fetchAllCharacters() {
     try {
