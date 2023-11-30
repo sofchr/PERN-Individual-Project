@@ -14,7 +14,7 @@ import Characters from "./components/Characters";
 import NavBar from "./components/NavBar";
 import Posts from "./components/Posts";
 import Home from "./components/Home";
-import "/App.css";
+import "./App.css";
 import { useState } from "react";
 import Register from "./components/Register";
 import Login from "./components/Login";
