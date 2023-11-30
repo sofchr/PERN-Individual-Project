@@ -10,15 +10,15 @@
 // import SingleCharacter from "../components/SingleCharacter";
 
 import { Routes, Route } from "react-router-dom";
-import Characters from "./components/Characters";
-import NavBar from "./components/NavBar";
-import Posts from "./components/Posts";
-import Home from "./components/Home";
+import Characters from "../components/Characters";
+import NavBar from "../components/NavBar";
+import Posts from "../components/Posts";
+import Home from "../components/Home";
 import "./App.css";
 import { useState } from "react";
-import Register from "./components/Register";
-import Login from "./components/Login";
-import SingleCharacter from "./components/SingleCharacter";
+import Register from "../components/Register";
+import Login from "../components/Login";
+import SingleCharacter from "../components/SingleCharacter";
 
 function App() {
   const [token, setToken] = useState(null);
