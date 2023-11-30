@@ -1,7 +1,7 @@
 const { Client } = require('pg')
 const dbname = 'gardenwall';
 // const client = new Client(`postgres://localhost:5432/${gardenwall}`)
-const client = new Client('postgres://gardenwall_rwhz_user:RHfyPALJ6VRQzrk1Ntp3q69nTtFQG5hF@dpg-cljre2hll56s73bonlf0-a/gardenwall_rwhz')
+const client = new Client('postgres://gardenwall_a5bp_user:tH0orIZcDM18jKyogX9Kh5UzxGSVctt3@dpg-cljt1gdae00c73frhjtg-a/gardenwall_a5bp')
 
 
 module.exports = client
