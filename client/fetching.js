@@ -1,6 +1,7 @@
 //fetching all characters
 
-const baseUrl = "http://localhost:8080/api";
+// const baseUrl = "http://localhost:8080/api";
+const baseUrl = "https://the-unknown.onrender.com/api"
 
 export async function fetchAllCharacters() {
     try {
