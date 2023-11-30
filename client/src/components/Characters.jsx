@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchAllCharacters } from "../fetching";
+import { fetchAllCharacters } from "../../fetching";
 import { useNavigate } from "react-router-dom";
 
 export default function Characters() {
