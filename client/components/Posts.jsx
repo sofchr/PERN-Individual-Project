@@ -1,4 +1,4 @@
-import { fetchAllPosts } from "./fetching";
+import { fetchAllPosts } from "../fetching";
 import { useState, useEffect } from "react";
 import NewPost from "./NewPost";
 import React from "react";

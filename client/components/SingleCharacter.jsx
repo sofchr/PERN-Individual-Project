@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { fetchSingleCharacter } from "./fetching";
+import { fetchSingleCharacter } from "../fetching";
 
 export default function SingleCharacter() {
   const navigate = useNavigate();

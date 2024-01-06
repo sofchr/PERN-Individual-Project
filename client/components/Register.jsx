@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { registerUser } from "./fetching";
+import { registerUser } from "../fetching";
 import { useNavigate } from "react-router-dom";
 
 export default function Register({ token, setToken }) {

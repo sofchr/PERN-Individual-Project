@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { login } from "./fetching";
+import { login } from "../fetching";
 import { useNavigate } from "react-router-dom";
 
 export default function Login({ token, setToken }) {

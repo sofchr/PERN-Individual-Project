@@ -1,5 +1,5 @@
 // import { useNavigate } from "react-router-dom";
-import { deletePost } from "./fetching";
+import { deletePost } from "../fetching";
 // import { useState } from "react";
 
 export default function DeletePost({ postId, refreshPosts, token }) {
