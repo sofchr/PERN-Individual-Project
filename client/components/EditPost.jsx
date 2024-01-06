@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { editPost } from "../fetching";
+import { editPost } from "./fetching";
 // import { useNavigate } from "react-router-dom";
 
 //add 'token' to deconstructed props if using tokens

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { createNewPost, fetchAllPosts } from "../fetching";
+import { createNewPost, fetchAllPosts } from "./fetching";
 // import { useNavigate } from "react-router-dom";
 
 //add 'token' to deconstructed props if using tokens
